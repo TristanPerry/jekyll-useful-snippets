@@ -27,3 +27,13 @@ Then you just need to reference this when calling the plugin:
 You can naturally use this multple times by having multiple gallery-type data in your front matter, then reference the `image_gallery` plugin as required in your post.
 
 One important note is that if your image is in `/path/to/image1.jpg`, it is expected that the thumbnail is stored in `/path/to/thumb/image1.jpg`.
+
+## IntersectionObserver polyfill
+
+The [browser support for IntersectionObserver](https://caniuse.com/#feat=intersectionobserver) is not 100% just yet, so you can also add the following to your site:
+
+```
+<script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver" type="text/javascript"></script>
+``` 
+
+Polyfill.io will only load the relevant polyfill code if your visitor's browser does not contain the requested feature, meaning this is a lightweight bit of JS to include in your site.

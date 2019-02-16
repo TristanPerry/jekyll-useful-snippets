@@ -19,7 +19,9 @@ This will generate the following HTML:
 <noscript><img src="/path/to/image.jpg" alt="Image description goes here" title="Image description goes here" class="image classes here" /></noscript>
 ```
 
-The [browser support for IntersectionObserver](https://caniuse.com/#feat=intersectionobserver) is not 100%, you can also add the following to your site:
+## IntersectionObserver polyfill
+
+The [browser support for IntersectionObserver](https://caniuse.com/#feat=intersectionobserver) is not 100% just yet, so you can also add the following to your site:
 
 ```
 <script src="https://polyfill.io/v2/polyfill.min.js?features=IntersectionObserver" type="text/javascript"></script>
@@ -33,6 +35,8 @@ The other benefit of the `main.js` code is that it purely looks for a HTML tag w
 
 So the following YouTube embed code will _also_ lead to a lazy-loaded YouTube video:
 
+```
 <iframe width="560" height="315" data-src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+```
 
 There are other ways of lazy-loading YouTube videos (such as pulling the YouTube thumbnail image from the video ID, and showing this instead of the iframe - until the image is actually clicked), but this particular approach has been working well for me.
