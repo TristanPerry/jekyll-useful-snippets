@@ -1,0 +1,37 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>{{ site.url }}/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>1</priority>
+    </url>
+    {% for post in site.posts %}
+    <url>
+        <loc>{{ site.url }}{{ post.url }}</loc>
+        {% if post.last_modified == null %}
+        <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
+        {% else %}
+        <lastmod>{{ post.last_modified | date_to_xmlschema }}</lastmod>
+        {% endif %}
+        <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    {% endfor %}
+    {% for page in site.pages %}
+    {% if page.isresourcepage == null or page.isresourcepage == false %}
+    {% if page.url != '/feed.xml' and page.url != '/404.html' and page.url != '/assets/main.css' and page.url != '/sitemap.xml' and page.url != '/' %}
+    <url>
+        <loc>{{ site.url }}{{ page.url }}</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        {% if page.last_modified != null %}
+        <lastmod>{{ page.last_modified | date_to_xmlschema }}</lastmod>
+        {% endif %}
+    </url>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+</urlset>
