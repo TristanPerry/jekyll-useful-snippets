@@ -47,7 +47,7 @@ module Jekyll
         thumbnail_url = change_last_string_occurence(image[0], '/', '/thumbs/')
         first_markup = index == 0 ? "class=\"active\"" : ""
 
-        output += "<img data-src=\"#{thumbnail_url}\" #{first_markup} alt=\"#{image[1]}\" title=\"#{image[1]}\" />"
+        output += "<img data-full-src=\"#{image[0]}\" data-src=\"#{thumbnail_url}\" #{first_markup} alt=\"#{image[1]}\" title=\"#{image[1]}\" />"
       end
 
       output += "<figcaption>Click on the thumbnail to see the larger image, or click the photo itself to move to the previous/next photo.</figcaption>\n"

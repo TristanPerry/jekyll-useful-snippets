@@ -20,7 +20,7 @@ function getNextImage(gallery, isPrevious) {
     let lastImg = imageList.length - 1;
 
     for (let i = 0; i < imageList.length; i++) {
-        if (imageList[i].getAttribute("src").replace("/thumbs", "") === currentImageSrc) {
+        if (imageList[i].getAttribute("data-full-src") === currentImageSrc) {
             if (isPrevious && i === 0) {
                 return imageList[lastImg];
             }
@@ -43,7 +43,7 @@ function imageSelected(event) {
 }
 
 function selectImage(currentImage, selectedImage) {
-    currentImage.src = selectedImage.getAttribute("src").replace("/thumbs", "");
+    currentImage.src = selectedImage.getAttribute("data-full-src");
     currentImage.alt = selectedImage.getAttribute("alt");
     currentImage.title = selectedImage.getAttribute("alt");
 
